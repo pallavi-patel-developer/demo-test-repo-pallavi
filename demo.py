@@ -11,3 +11,6 @@ def load_and_inspect_data(file_path):
 
 if __name__ == "__main__":
     data = load_and_inspect_data("dataset.csv")
+
+print("hello my name is John Doe")
+print("fejhgefuyweuyeuwetu")
