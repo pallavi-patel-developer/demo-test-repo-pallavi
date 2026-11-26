@@ -1,7 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "regions": ["syd1"],
-  "installCommand": "npm install --legacy-peer-deps",
-  "buildCommand": "npm run build -w @demo-test-repo-pallavi/web",
-  "outputDirectory": "apps/web/.next"
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": null,
+  "outputDirectory": "."
 }
