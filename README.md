@@ -1,75 +1,88 @@
-# PulseFlow — Responsive Product Landing Page
+# PulseFlow — Mini Website (React 18 + TypeScript + Tailwind CSS)
 
-A mobile-friendly, modern SaaS product landing page designed and built using cutting-edge CSS layout techniques (CSS Grid, Flexbox, Custom Properties, fluid typography, and media queries).
-
----
-
-## 🌟 Features & Highlights
-
-- **Modern CSS Layout Techniques**:
-  - **CSS Grid**: Utilized for auto-fitting responsive grids (`repeat(auto-fit, minmax(320px, 1fr))`) across feature cards, testimonial blocks, dashboard stats, and multi-column footers.
-  - **CSS Flexbox**: Used for alignment and distribution across sticky navbar, hero actions, pricing toggle switch, review authors, and social icons.
-  - **CSS Custom Properties (Variables)**: Standardized color tokens, font families, radius curves, elevation shadows, and spacing.
-  - **Fluid Responsive Typography**: Using `clamp()` (e.g. `clamp(2rem, 5.5vw, 4.25rem)`) for smooth heading scaling across mobile, tablet, and widescreen monitors without harsh breakpoint jumps.
-  - **Mobile-First Responsive Breakpoints**: Comprehensive media query coverage (`992px`, `768px`, and `480px`) with zero horizontal overflow.
-  
-- **Visual Design & Polish**:
-  - **Glassmorphism**: Backdrop blur overlays with subtle translucent card borders.
-  - **Ambient Glows**: Radial gradient glow effects for a high-tech modern aesthetic.
-  - **Interactive Micro-Interactions**: Hover lifts (`transform: translateY(-6px)`), button glow shadows, and smooth transitions.
-  - **Dual Theme Support**: Light & Dark mode toggle with `localStorage` persistence and automatic system preference detection (`prefers-color-scheme`).
-
-- **Functional Interactive Elements**:
-  - **Responsive Mobile Navigation Drawer**: Smooth slide-in menu with animated hamburger icon and dismissible backdrop.
-  - **Live Dashboard Preview**: Simulated real-time metrics counter and animated throughput activity pipeline.
-  - **Interactive Code Terminal Tabs**: Toggle between Terminal CLI (`bash`), Python SDK, and JSON manifest views.
-  - **Monthly vs Annual Pricing Toggle**: Dynamic price calculations showing 20% annual savings.
-  - **Interactive FAQ Accordion**: Expandable Q&A items with smooth height transitions and rotating indicator icons.
-  - **Newsletter / CTA Subscription Form**: Form validation with immediate toast notification feedback.
+A responsive, high-performance product mini website built for **Assignment 3: Create a Simple Mini Website** using **React 18**, **TypeScript**, and **Tailwind CSS**.
 
 ---
 
-## 📁 Project Structure
+## 🛠️ Technology Stack & Requirements Met
+
+| Requirement | Implementation Details |
+|---|---|
+| **React 18** | React 18 (`^18.3.1`) with `createRoot`, functional components, hooks (`useState`, `useEffect`). |
+| **TypeScript** | Strict type safety (`~5.6.2`), typed props, typed interfaces (`NavItem`, `Feature`, `PricingTier`, `Testimonial`, `FAQItem`). |
+| **Tailwind CSS** | Utility-first styling (`^3.4.15`), dark mode class switching, custom brand tokens, responsive grid layouts. |
+| **Vite** | Blazing-fast build tool and bundler (`^5.4.11`) configured with `@vitejs/plugin-react`. |
+| **User Interactions** | Mobile drawer toggle, Dark/Light mode theme switch, Monthly/Annual pricing calculator, interactive code snippets, simulated live counter, FAQ accordion, lead capture form. |
+
+---
+
+## 🧩 Component Architecture
 
 ```text
-demo-test-repo-pallavi/
-├── index.html       # Primary landing page markup (semantic HTML5)
-├── demo.html        # Deployment landing page (synchronized with index.html)
-├── styles.css       # Core stylesheet (CSS Grid, Flexbox, Custom Properties, Media Queries)
-├── script.js        # Interactive behaviors (theme, drawer, pricing, accordion, tabs)
-├── vercel.json      # Vercel deployment configuration
-├── package.json     # Project metadata
-└── README.md        # Documentation
+src/
+├── main.tsx                    # React 18 createRoot entry point
+├── App.tsx                     # Main layout & theme management state
+├── index.css                   # Tailwind directives & glassmorphic utility styles
+├── types/
+│   └── index.ts                # TypeScript interfaces & types
+└── components/
+    ├── Navbar.tsx              # Sticky blur nav, mobile hamburger drawer & theme switcher
+    ├── Hero.tsx                # Catchy headline, CTA buttons, metrics badge & interactive dashboard preview
+    ├── Features.tsx            # Responsive Tailwind CSS grid with interactive category filter pills
+    ├── InteractiveDemo.tsx     # Code snippet language tabs (CLI / TypeScript / YAML) & live test run simulator
+    ├── HowItWorks.tsx          # 3-step pipeline breakdown with icons & numbers
+    ├── Pricing.tsx             # Dynamic Monthly vs Annual billing toggle with 20% discount calculation
+    ├── Testimonials.tsx        # Customer review cards with 5-star ratings & user avatars
+    ├── FAQ.tsx                 # Interactive accordion with smooth expandable answers
+    ├── ContactCTA.tsx          # Free trial signup form with live client-side validation
+    └── Footer.tsx              # Responsive 5-column footer with social links & copyright
 ```
+
+---
+
+## ⚡ User Interactions Included
+
+1. **Dark / Light Mode Toggle**:
+   - Persists state in `localStorage` and toggles `.dark` class on `<html>` with smooth transition animations.
+2. **Responsive Mobile Navigation Drawer**:
+   - Animated hamburger button, slide-in navigation drawer, and dismissible backdrop.
+3. **Interactive Capability Filters (Features)**:
+   - Filter capabilities by *All*, *Automation & Logic*, *Enterprise Security*, or *Edge Infrastructure*.
+4. **Interactive Code & Simulator (InteractiveDemo)**:
+   - Toggle between **CLI (Bash)**, **TypeScript SDK**, and **YAML Configuration**.
+   - One-click copy snippet to clipboard with checkmark feedback.
+   - "Test Run Pipeline" button that appends simulated real-time execution logs.
+5. **Dynamic Pricing Calculator (Pricing)**:
+   - Interactive Monthly vs Annual toggle updating the price from `$29` to `$23` (Save 20%).
+6. **Expandable FAQ Accordion**:
+   - Click to expand/collapse questions with animated rotating chevron indicator.
+7. **Lead Capture / CTA Form**:
+   - Email input with interactive instant confirmation state.
 
 ---
 
 ## 🚀 How to Run Locally
 
-You can preview the landing page directly in your browser or with any local HTTP server:
-
-### Option 1: Direct Browser
-Double-click `index.html` or `demo.html` to open it in any modern web browser (Chrome, Edge, Firefox, Safari).
-
-### Option 2: Using Python
+### 1. Install dependencies
 ```bash
-python -m http.server 8000
+npm install
 ```
-Then visit `http://localhost:8000` in your browser.
 
-### Option 3: Using Node / npx
+### 2. Start development server
 ```bash
-npx serve .
+npm run dev
+```
+
+### 3. Build for production
+```bash
+npm run build
 ```
 
 ---
 
-## 📱 Mobile Responsiveness Checklist
+## 🚢 Deployment
 
-- [x] Viewport meta tag properly configured
-- [x] Fluid container padding with `clamp()`
-- [x] Collapsible hamburger menu on mobile & tablet
-- [x] Multi-column grids convert seamlessly to single column on mobile screens
-- [x] Touch-friendly interactive buttons and hit targets (min 44px)
-- [x] No horizontal scrolling (`overflow-x: hidden`)
-- [x] High-contrast accessible text across both dark and light modes
+Configured for **Vercel** with `vercel.json`:
+- **Framework**: `vite`
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
